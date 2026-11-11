@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanal İzle</title>
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Kanal İzle">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADCklEQVR4Xu3dQXLTQBRFUZtilgmVFWRnGWVVjNhhlkAVooITS7aeLfrL3eesIFI9bssmiOPT88sB5nxzW1hiHBgHOeVAOcgpB8pBTjlQDnLKgXKQUw6Ug5xyoBzklAPlIKccKAc55UA5yCkHykFOOVAOcsqBcpBTDpSDnHKgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccrDo+x7uzfvr2x5+jL358etn7Y90rP3/VsziqsKJlI3DLCIlE6l55rCMVMkdKxhHyXV2oP19KxgHj6L1M8fS/EvO1D3bw42q/yhrFrOm29L+KDnV9FipvdQ+tLyHTcdxTjYuq70/xeNgz4yDRcaBcZBTDpSDnHKgHOSUA+X4o+V3zx0Yrhzvr28mstJw45CQ9QYdx3TESMhl445DQq4afRwScoFx/EuIU+YL4/jEPk4Zx1ceVD8YxzwJORyMY5mEKMcVI0/EOFYZ85QxjrUGTIhxZIZKiHHExkmIcdxohIkYx136PmWM414dJ8Q4ttFlQoxjM/0lpP7lLd2ofV3C/6Ac2+hvGYeDctyty1lMlOMuHS9DOW7X9ywmHkhjI8zCsXKLcZahHIGhZqEcgQGXoRzXjTkLD6RXjDwLx8olluFYmWEWH3xD+ollnPIl2F9mcc44zGLR6MeKYFwwbjnM4qpBy2EZawxXDrNYb6xyWEZkrHEQMQ58lCWnHCgHOeVAOcgpB8pBTjnYazm6fOfJhmrvT9Ny+KuNyOwyWt7DpuOY1d8LcTZR24zJ8en5ZZOLWW8Pl/2gWmbD+zkeSeNl1Iyj/UVym4JjZeJwWa/qj1PZOExkpapl1DyQnlORWYWzKPu0wqOo/56D3TIOFhkHxkFOOVAOcsqBcpBTDpSDnHKgHOSUA+Ug19U7wfbweyHlv4SxIccKjhVyyoFykFMOFhX/0wT2TDnwzEFOOVAOcsqBcpBTDpSDnHKgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccqAc5JQD5SCnHCgHOeVg0W/9oJXT1IIFxQAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADCklEQVR4Xu3dQXLTQBRFUZtilgmVFWRnGWVVjNhhlkAVooITS7aeLfrL3eesIFI9bssmiOPT88sB5nxzW1hiHBgHOeVAOcgpB8pBTjlQDnLKgXKQUw6Ug5xyoBzklAPlIKccKAc55UA5yCkHykFOOVAOcsqBcpBTDpSDnHKgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccrDo+x7uzfvr2x5+jL358etn7Y90rP3/VsziqsKJlI3DLCIlE6l55rCMVMkdKxhHyXV2oP19KxgHj6L1M8fS/EvO1D3bw42q/yhrFrOm29L+KDnV9FipvdQ+tLyHTcdxTjYuq70/xeNgz4yDRcaBcZBTDpSDnHKgHOSUA+X4o+V3zx0Yrhzvr28mstJw45CQ9QYdx3TESMhl445DQq4afRwScoFx/EuIU+YL4/jEPk4Zx1ceVD8YxzwJORyMY5mEKMcVI0/EOFYZ85QxjrUGTIhxZIZKiHHExkmIcdxohIkYx136PmWM414dJ8Q4ttFlQoxjM/0lpP7lLd2ofV3C/6Ac2+hvGYeDctyty1lMlOMuHS9DOW7X9ywmHkhjI8zCsXKLcZahHIGhZqEcgQGXoRzXjTkLD6RXjDwLx8olluFYmWEWH3xD+ollnPIl2F9mcc44zGLR6MeKYFwwbjnM4qpBy2EZawxXDrNYb6xyWEZkrHEQMQ58lCWnHCgHOeVAOcgpB8pBTjnYazm6fOfJhmrvT9Ny+KuNyOwyWt7DpuOY1d8LcTZR24zJ8en5ZZOLWW8Pl/2gWmbD+zkeSeNl1Iyj/UVym4JjZeJwWa/qj1PZOExkpapl1DyQnlORWYWzKPu0wqOo/56D3TIOFhkHxkFOOVAOcsqBcpBTDpSDnHKgHOSUA+Ug19U7wfbweyHlv4SxIccKjhVyyoFykFMOFhX/0wT2TDnwzEFOOVAOcsqBcpBTDpSDnHKgHOSUA+UgpxwoBznlQDnIKQfKQU45UA5yyoFykFMOlIOccqAc5JQD5SCnHCgHOeVg0W/9oJXT1IIFxQAAAABJRU5ErkJggg==">
+<style>
+:root {
+  --zemin: #f4f6fa; --kart: #fff; --yazi: #0f172a; --soluk: #5b6678; --cizgi: #e2e8f0; --vurgu: #e11d48; --vurgu-yazi: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --zemin: #0b1220; --kart: #141c2e; --yazi: #e8edf7; --soluk: #93a0b8; --cizgi: #243049; --vurgu: #fb7185; --vurgu-yazi: #0b1220; }
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; background: var(--zemin); color: var(--yazi); font: 16px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif; }
+.ust { position: sticky; top: 0; z-index: 5; padding: calc(env(safe-area-inset-top) + 10px) 16px 10px; background: var(--zemin); border-bottom: 1px solid var(--cizgi); }
+.ust h1 { margin: 0; font-size: 22px; }
+main { padding: 12px 14px calc(env(safe-area-inset-bottom) + 90px); max-width: 720px; margin: 0 auto; }
+[hidden] { display: none !important; }
+.alt { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; display: flex; background: var(--kart); border-top: 1px solid var(--cizgi); padding-bottom: env(safe-area-inset-bottom); }
+.alt button { flex: 1; min-height: 52px; border: 0; background: none; color: var(--soluk); font-size: 11px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.alt button[aria-current="page"] { color: var(--vurgu); font-weight: 600; }
+.ik { font-size: 18px; line-height: 1; }
+input, textarea { width: 100%; min-height: 44px; margin-top: 4px; padding: 10px 12px; border: 1px solid var(--cizgi); border-radius: 10px; background: var(--kart); color: var(--yazi); font-size: 16px; }
+#ara { margin: 0 0 10px; }
+label { display: block; margin: 10px 0; font-size: 14px; color: var(--soluk); }
+.dugme { min-height: 44px; padding: 0 18px; border: 0; border-radius: 10px; background: var(--vurgu); color: var(--vurgu-yazi); font-size: 16px; font-weight: 600; }
+.dugme.ikincil { background: transparent; color: var(--vurgu); border: 1px solid var(--vurgu); }
+.kart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 14px; padding: 14px; margin: 12px 0; }
+.kart h2 { margin: 0 0 6px; font-size: 17px; }
+.not, .bos { color: var(--soluk); font-size: 14px; }
+.bos { text-align: center; padding: 40px 16px; }
+.mesaj { min-height: 20px; margin: 8px 0 0; font-size: 14px; }
+.mesaj.hata { color: #dc2626; } .mesaj.ok { color: #16a34a; }
+.grup { margin: 16px 2px 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--soluk); }
+.kanallar, .liste { list-style: none; margin: 0; padding: 0; }
+.kanal { display: flex; align-items: stretch; background: var(--kart); border: 1px solid var(--cizgi); border-radius: 12px; margin-bottom: 8px; overflow: hidden; }
+.kanal-ac { flex: 1; min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 6px 12px; border: 0; background: none; color: var(--yazi); font-size: 16px; text-align: left; min-width: 0; }
+.kanal-ac img, .logo-yok { width: 36px; height: 36px; object-fit: contain; border-radius: 8px; flex: none; }
+.logo-yok { display: grid; place-items: center; background: var(--cizgi); color: var(--soluk); font-size: 14px; }
+.kanal-ad { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fav { width: 52px; min-height: 52px; border: 0; border-left: 1px solid var(--cizgi); background: none; color: var(--soluk); font-size: 22px; }
+.fav.acik { color: #f59e0b; }
+.satir { display: flex; align-items: center; gap: 8px; }
+.satir .kanal-ac { border: 1px solid var(--cizgi); border-radius: 12px; background: var(--kart); }
+.sil { min-width: 44px; min-height: 44px; border: 1px solid var(--cizgi); border-radius: 12px; background: var(--kart); color: #dc2626; font-size: 15px; }
+.satir { margin-bottom: 8px; }
+.oynatici { position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column; background: #000; color: #fff; padding-top: env(safe-area-inset-top); }
+.o-ust { display: flex; align-items: center; gap: 12px; padding: 8px 12px; }
+.o-ust span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.o-alan { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; padding-bottom: env(safe-area-inset-bottom); }
+#video, #yt-cerceve { width: 100%; max-height: 100%; aspect-ratio: 16 / 9; border: 0; background: #000; }
+.o-hata { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; text-align: center; background: rgba(0,0,0,.85); }
+</style>
+</head>
+<body>
+<header class="ust"><h1 id="baslik">Favoriler</h1></header>
+
+<main id="icerik">
+  <section id="sekme-favoriler" class="sekme" aria-labelledby="baslik"></section>
+
+  <section id="sekme-tv" class="sekme" hidden>
+    <input id="ara" type="search" placeholder="Kanal ara" autocomplete="off" autocapitalize="off" enterkeyhint="search" aria-label="Kanal ara">
+    <div id="tv-liste"></div>
+  </section>
+
+  <section id="sekme-youtube" class="sekme" hidden>
+    <div id="yt-liste"></div>
+    <form id="yt-form" class="kart" autocomplete="off">
+      <h2>YouTube yayını ekle</h2>
+      <label>Ad <input name="ad" required maxlength="60"></label>
+      <label>Kanal kimliği (UC…) veya YouTube bağlantısı <input name="girdi" required inputmode="url" autocapitalize="off" autocorrect="off"></label>
+      <button type="submit" class="dugme">Ekle</button>
+      <p class="mesaj" id="yt-mesaj" role="status"></p>
+    </form>
+  </section>
+
+  <section id="sekme-abonelik" class="sekme" hidden>
+    <p class="not">Ücretli platformlar uygulamanın içinde oynatılmaz; kartlara dokununca kendi sitelerinde açılır ve oradaki girişini kullanırsın. Uygulama şifre saklamaz.</p>
+    <div id="ab-liste"></div>
+    <form id="ab-form" class="kart" autocomplete="off">
+      <h2>Abonelik ekle</h2>
+      <label>Ad <input name="ad" required maxlength="40"></label>
+      <label>Site adresi (https://…) <input name="adres" required inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://"></label>
+      <button type="submit" class="dugme">Ekle</button>
+      <p class="mesaj" id="ab-mesaj" role="status"></p>
+    </form>
+  </section>
+
+  <section id="sekme-ayarlar" class="sekme" hidden>
+    <div class="kart">
+      <h2>Liste ekle</h2>
+      <p class="not">M3U kanal listesini adresten, yapıştırarak veya dosyadan ekleyebilirsin.</p>
+      <label>Liste adı (isteğe bağlı) <input id="l-ad" maxlength="40"></label>
+      <label>Liste adresi (https://…) <input id="l-adres" inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://"></label>
+      <button type="button" class="dugme" id="l-adres-ekle">Adresten ekle</button>
+      <label>Listeyi yapıştır <textarea id="l-metin" rows="5" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="#EXTM3U …"></textarea></label>
+      <button type="button" class="dugme" id="l-metin-ekle">Yapıştırılandan ekle</button>
+      <label>Dosyadan <input id="l-dosya" type="file" accept=".m3u,.m3u8,.txt,text/plain,audio/x-mpegurl,application/vnd.apple.mpegurl"></label>
+      <p class="mesaj" id="l-mesaj" role="status"></p>
+    </div>
+    <div class="kart">
+      <h2>Eklediğim listeler</h2>
+      <div id="l-liste"></div>
+    </div>
+  </section>
+</main>
+
+<nav class="alt" aria-label="Bölümler">
+  <button type="button" data-sekme="favoriler" aria-current="page"><span class="ik" aria-hidden="true">★</span>Favoriler</button>
+  <button type="button" data-sekme="tv"><span class="ik" aria-hidden="true">📺</span>Canlı TV</button>
+  <button type="button" data-sekme="youtube"><span class="ik" aria-hidden="true">▶</span>YouTube</button>
+  <button type="button" data-sekme="abonelik"><span class="ik" aria-hidden="true">🔑</span>Abonelik</button>
+  <button type="button" data-sekme="ayarlar"><span class="ik" aria-hidden="true">⚙</span>Ayarlar</button>
+</nav>
+
+<div id="oynatici" class="oynatici" hidden role="dialog" aria-modal="true" aria-label="Oynatıcı">
+  <div class="o-ust"><button type="button" id="o-kapat" class="dugme">Kapat</button><span id="o-ad"></span></div>
+  <div class="o-alan">
+    <video id="video" playsinline controls></video>
+    <iframe id="yt-cerceve" title="YouTube canlı yayın" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen hidden></iframe>
+    <div id="o-hata" class="o-hata" hidden>
+      <p id="o-hata-metin"></p>
+      <button type="button" id="o-tekrar" class="dugme">Yeniden dene</button>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+// ---- m3u ----
+// M3U liste ayrıştırıcı (saf fonksiyon, tarayıcı ve Node'da çalışır)
+function m3uAyristir(metin) {
+  const sonuc = { kanallar: [], atlanan: 0 };
+  if (typeof metin !== 'string') return sonuc;
+  const satirlar = metin.replace(/^﻿/, '').split(/\r\n|\r|\n/);
+  let bekleyen = null;
+  let grup = '';
+  for (const ham of satirlar) {
+    const satir = ham.trim();
+    if (!satir) continue;
+    if (satir.startsWith('#EXTINF')) {
+      bekleyen = bilgiOku(satir);
+      continue;
+    }
+    if (satir.startsWith('#EXTGRP:')) {
+      grup = satir.slice(8).trim();
+      continue;
+    }
+    if (satir.startsWith('#')) continue;
+    if (!/^https?:\/\//i.test(satir)) {
+      if (bekleyen) sonuc.atlanan++;
+      bekleyen = null;
+      continue;
+    }
+    const b = bekleyen || {};
+    sonuc.kanallar.push({
+      ad: b.ad || satir,
+      adres: satir,
+      logo: b.logo || '',
+      grup: b.grup || grup || 'Diğer',
+    });
+    bekleyen = null;
+  }
+  return sonuc;
+}
+
+function bilgiOku(satir) {
+  const oz = {};
+  const re = /([\w-]+)="([^"]*)"/g;
+  let m;
+  while ((m = re.exec(satir))) oz[m[1].toLowerCase()] = m[2];
+  // Ad: tırnak dışındaki ilk virgülden sonrası
+  let tirnak = false, i = -1;
+  for (let j = 0; j < satir.length; j++) {
+    if (satir[j] === '"') tirnak = !tirnak;
+    else if (satir[j] === ',' && !tirnak) { i = j; break; }
+  }
+  const ad = i >= 0 ? satir.slice(i + 1).trim() : '';
+  return { ad, logo: oz['tvg-logo'] || '', grup: (oz['group-title'] || '').trim() };
+}
+
+// ---- ara ----
+// Türkçe duyarlı arama: büyük/küçük harf ve i/ı, ş/s gibi farkları yok sayar
+const HARITA = { 'ı': 'i', 'ş': 's', 'ğ': 'g', 'ü': 'u', 'ö': 'o', 'ç': 'c', 'â': 'a', 'î': 'i', 'û': 'u' };
+
+function sadelestir(s) {
+  return String(s ?? '')
+    .replace(/İ/g, 'i')
+    .replace(/I/g, 'i')
+    .toLocaleLowerCase('tr')
+    .replace(/[ıışğüöçâîû]/g, (c) => HARITA[c] || c)
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function kanalAra(kanallar, sorgu) {
+  const q = sadelestir(sorgu);
+  if (!q) return kanallar;
+  const parcalar = q.split(' ');
+  return kanallar.filter((k) => {
+    const hedef = sadelestir(k.ad + ' ' + (k.grup || ''));
+    return parcalar.every((p) => hedef.includes(p));
+  });
+}
+
+// ---- depo ----
+// Kalıcı veri: yalnızca localStorage (arka uç dışarıdan verilir, testte sahte kullanılır)
+const ANAHTAR = 'kanal-izle.v1';
+
+function depoOlustur(arka) {
+  function oku() {
+    try {
+      const v = JSON.parse(arka.getItem(ANAHTAR) || 'null');
+      if (v && typeof v === 'object') return v;
+    } catch (e) { /* bozuk veri: sıfırdan başla */ }
+    return {};
+  }
+  function yaz(d) {
+    try { arka.setItem(ANAHTAR, JSON.stringify(d)); return true; } catch (e) { return false; }
+  }
+  const dizi = (d, k) => (Array.isArray(d[k]) ? d[k] : []);
+  const gecerliAdres = (a) => typeof a === 'string' && /^https:\/\//i.test(a);
+
+  return {
+    listeleriGetir() { return dizi(oku(), 'listeler'); },
+    listeKaydet(liste) {
+      if (!liste || !liste.id || !Array.isArray(liste.kanallar)) return false;
+      const d = oku();
+      const l = dizi(d, 'listeler').filter((x) => x.id !== liste.id);
+      l.push(liste);
+      d.listeler = l;
+      return yaz(d);
+    },
+    listeSil(id) {
+      const d = oku();
+      const once = dizi(d, 'listeler');
+      d.listeler = once.filter((x) => x.id !== id);
+      return d.listeler.length !== once.length && yaz(d);
+    },
+    favorileriGetir() { return dizi(oku(), 'favoriler'); },
+    favoriMi(adres) { return dizi(oku(), 'favoriler').some((k) => k.adres === adres); },
+    favoriDegistir(kanal) {
+      const d = oku();
+      const f = dizi(d, 'favoriler');
+      const var_ = f.some((k) => k.adres === kanal.adres);
+      d.favoriler = var_ ? f.filter((k) => k.adres !== kanal.adres) : [...f, { ad: kanal.ad, adres: kanal.adres, logo: kanal.logo || '', grup: kanal.grup || '' }];
+      yaz(d);
+      return !var_;
+    },
+    sonIzleneniGetir() { return oku().son || null; },
+    sonIzleneniKaydet(kanal) {
+      const d = oku();
+      d.son = { ad: kanal.ad, adres: kanal.adres, logo: kanal.logo || '', grup: kanal.grup || '' };
+      return yaz(d);
+    },
+    abonelikleriGetir() { return dizi(oku(), 'abonelikler'); },
+    abonelikEkle({ ad, adres }) {
+      ad = String(ad || '').trim();
+      if (!ad || !gecerliAdres(adres)) return false;
+      const d = oku();
+      const a = dizi(d, 'abonelikler');
+      if (a.some((x) => x.adres === adres)) return false;
+      d.abonelikler = [...a, { ad, adres }];
+      return yaz(d);
+    },
+    abonelikSil(adres) {
+      const d = oku();
+      const once = dizi(d, 'abonelikler');
+      d.abonelikler = once.filter((x) => x.adres !== adres);
+      return d.abonelikler.length !== once.length && yaz(d);
+    },
+    // Varsayılanlar yalnızca bir kez eklenir; kullanıcı silerse geri gelmez
+    abonelikleriTohumla(varsayilanlar) {
+      const d = oku();
+      if (d.tohumlandi) return false;
+      d.abonelikler = [...dizi(d, 'abonelikler')];
+      for (const v of varsayilanlar || []) {
+        if (v && v.ad && gecerliAdres(v.adres) && !d.abonelikler.some((x) => x.adres === v.adres)) d.abonelikler.push({ ad: v.ad, adres: v.adres });
+      }
+      d.tohumlandi = true;
+      return yaz(d);
+    },
+    youtubeleriGetir() { return dizi(oku(), 'youtube'); },
+    youtubeEkle({ ad, kimlik, tur }) {
+      ad = String(ad || '').trim();
+      if (!ad || !kimlik || (tur !== 'kanal' && tur !== 'video')) return false;
+      const d = oku();
+      const y = dizi(d, 'youtube');
+      if (y.some((x) => x.kimlik === kimlik)) return false;
+      d.youtube = [...y, { ad, kimlik, tur }];
+      return yaz(d);
+    },
+    youtubeSil(kimlik) {
+      const d = oku();
+      const once = dizi(d, 'youtube');
+      d.youtube = once.filter((x) => x.kimlik !== kimlik);
+      return d.youtube.length !== once.length && yaz(d);
+    },
+  };
+}
+
+// ---- listeler ----
+
+// Liste ekleme: adres, yapıştırılan metin veya dosya içeriği
+// Dönüş: {ok:true, liste, atlanan} | {ok:false, hata:'bos'|'gecersiz'|'okunamadi'}
+async function listeHazirla({ tur, deger, ad }, getir = (u) => fetch(u)) {
+  let metin = '';
+  if (tur === 'adres') {
+    const adres = String(deger || '').trim();
+    if (!adres) return { ok: false, hata: 'bos' };
+    if (!/^https:\/\//i.test(adres)) return { ok: false, hata: 'gecersiz' };
+    try {
+      const yanit = await getir(adres);
+      if (!yanit.ok) return { ok: false, hata: 'okunamadi' };
+      metin = await yanit.text();
+    } catch (e) {
+      return { ok: false, hata: 'okunamadi' }; // CORS, ağ hatası vb.
+    }
+  } else {
+    metin = String(deger || '');
+    if (!metin.trim()) return { ok: false, hata: 'bos' };
+  }
+  if (!/#EXTM3U|#EXTINF/i.test(metin)) return { ok: false, hata: 'gecersiz' };
+  const { kanallar, atlanan } = m3uAyristir(metin);
+  if (!kanallar.length) return { ok: false, hata: 'gecersiz' };
+  const liste = {
+    id: 'l' + kimlikUret(tur === 'adres' ? deger : metin),
+    ad: String(ad || '').trim() || (tur === 'adres' ? 'Adresten liste' : tur === 'dosya' ? 'Dosyadan liste' : 'Yapıştırılan liste'),
+    kanallar,
+  };
+  return { ok: true, liste, atlanan };
+}
+
+// Aynı içerik iki kez eklenirse aynı kimliği alır (tek kalır)
+function kimlikUret(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+
+// ---- render ----
+// Kullanıcı verisinden HTML üretirken tek yol: kacis()
+function kacis(s) {
+  return String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// Kanalları gruplara bölüp HTML satırları üretir. Tıklama olay delegasyonuyla (data-adres) yönetilir.
+function gruplarHtml(kanallar, favoriMi = () => false) {
+  const gruplar = new Map();
+  for (const k of kanallar) {
+    const g = k.grup || 'Diğer';
+    if (!gruplar.has(g)) gruplar.set(g, []);
+    gruplar.get(g).push(k);
+  }
+  let html = '';
+  for (const [g, liste] of gruplar) {
+    html += `<h3 class="grup">${kacis(g)}</h3><ul class="kanallar">`;
+    for (const k of liste) {
+      const logo = /^https:\/\//i.test(k.logo || '') ? `<img src="${kacis(k.logo)}" loading="lazy" alt="" referrerpolicy="no-referrer">` : '<span class="logo-yok" aria-hidden="true">▶</span>';
+      const fav = favoriMi(k.adres);
+      html += `<li class="kanal"><button type="button" class="kanal-ac" data-adres="${kacis(k.adres)}">${logo}<span class="kanal-ad">${kacis(k.ad)}</span></button>`
+        + `<button type="button" class="fav${fav ? ' acik' : ''}" data-fav="${kacis(k.adres)}" aria-label="${fav ? 'Favoriden çıkar' : 'Favoriye ekle'}" aria-pressed="${fav}">${fav ? '★' : '☆'}</button></li>`;
+    }
+    html += '</ul>';
+  }
+  return html;
+}
+
+// ---- oynatici ----
+// Oynatma: Safari'nin yerleşik HLS desteği. Önceki yayın her zaman önce durdurulur.
+function durdur(video) {
+  try { video.pause(); } catch (e) { /* yok say */ }
+  video.onerror = null;
+  video.removeAttribute('src');
+  video.load();
+}
+
+// Hata türü: 'http' (güvenli olmayan adres) | 'internet' | 'acilmadi'
+function hataTuru(adres, cevrimici) {
+  if (/^http:\/\//i.test(adres)) return 'http';
+  if (cevrimici === false) return 'internet';
+  return 'acilmadi';
+}
+
+const HATA_METNI = {
+  http: 'Bu yayın güvenli olmayan adresten geliyor, iPhone\'da açılamıyor.',
+  internet: 'İnternet bağlantısı yok.',
+  acilmadi: 'Bu kanal şu an açılmıyor.',
+};
+
+function oynat(video, adres, { hata, basladi } = {}) {
+  durdur(video);
+  const tur = hataTuru(adres, typeof navigator !== 'undefined' ? navigator.onLine : true);
+  if (tur === 'http' || tur === 'internet') { hata && hata(tur); return; }
+  video.setAttribute('playsinline', '');
+  video.controls = true;
+  video.onerror = () => hata && hata(hataTuru(adres, typeof navigator !== 'undefined' ? navigator.onLine : true) === 'internet' ? 'internet' : 'acilmadi');
+  video.onplaying = () => basladi && basladi();
+  video.src = adres;
+  const p = video.play();
+  if (p && p.catch) p.catch((e) => { if (e && e.name !== 'AbortError' && e.name !== 'NotAllowedError') hata && hata('acilmadi'); });
+}
+
+// YouTube canlı yayın gömme adresi (yalnızca resmi embed adresi)
+function youtubeAdresi({ tur, kimlik }) {
+  if (tur === 'kanal') return `https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(kimlik)}&autoplay=1&playsinline=1`;
+  return `https://www.youtube.com/embed/${encodeURIComponent(kimlik)}?autoplay=1&playsinline=1`;
+}
+
+// Kullanıcının yazdığı kanal kimliği ya da YouTube bağlantısından {tur, kimlik} çıkarır
+function youtubeCoz(girdi) {
+  const s = String(girdi || '').trim();
+  if (/^UC[\w-]{22}$/.test(s)) return { tur: 'kanal', kimlik: s };
+  let m = s.match(/youtube\.com\/channel\/(UC[\w-]{22})/i);
+  if (m) return { tur: 'kanal', kimlik: m[1] };
+  m = s.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|live\/|embed\/|shorts\/))([\w-]{11})/i);
+  if (m) return { tur: 'video', kimlik: m[1] };
+  if (/^[\w-]{11}$/.test(s)) return { tur: 'video', kimlik: s };
+  return null;
+}
+
+// ---- app ----
+
+
+
+
+
+
+const $ = (s) => document.querySelector(s);
+const depo = depoOlustur(window.localStorage);
+const BASLIKLAR = { favoriler: 'Favoriler', tv: 'Canlı TV', youtube: 'YouTube', abonelik: 'Aboneliklerim', ayarlar: 'Ayarlar' };
+let hazirKanallar = [];
+let sekme = 'favoriler';
+let sonAcilan = null;
+
+// ---------- veri ----------
+async function jsonGetir(yol) {
+  try { const r = await fetch(yol, { cache: 'no-cache' }); return r.ok ? await r.json() : []; } catch (e) { return []; }
+}
+async function hazirListeyiYukle() {
+  try {
+    const r = await fetch('data/kanallar.m3u', { cache: 'no-cache' });
+    if (r.ok) hazirKanallar = m3uAyristir(await r.text()).kanallar;
+  } catch (e) { hazirKanallar = []; }
+}
+function tumKanallar() {
+  const hepsi = [...hazirKanallar];
+  for (const l of depo.listeleriGetir()) hepsi.push(...l.kanallar);
+  const goruldu = new Set();
+  return hepsi.filter((k) => (goruldu.has(k.adres) ? false : goruldu.add(k.adres)));
+}
+const favMi = (a) => depo.favoriMi(a);
+
+// ---------- sekmeler ----------
+function sekmeGit(ad) {
+  sekme = ad;
+  document.querySelectorAll('.sekme').forEach((e) => { e.hidden = e.id !== 'sekme-' + ad; });
+  document.querySelectorAll('.alt button').forEach((b) => {
+    if (b.dataset.sekme === ad) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+  });
+  $('#baslik').textContent = BASLIKLAR[ad];
+  ciz();
+  window.scrollTo(0, 0);
+}
+
+function ciz() {
+  if (sekme === 'favoriler') cizFavoriler();
+  else if (sekme === 'tv') cizTv();
+  else if (sekme === 'youtube') cizYoutube();
+  else if (sekme === 'abonelik') cizAbonelik();
+  else if (sekme === 'ayarlar') cizAyarlar();
+}
+
+function cizFavoriler() {
+  const f = depo.favorileriGetir();
+  const son = depo.sonIzleneniGetir();
+  let html = '';
+  if (son) html += `<h3 class="grup">Son izlenen</h3><ul class="kanallar"><li class="kanal"><button type="button" class="kanal-ac" data-adres="${kacis(son.adres)}"><span class="logo-yok" aria-hidden="true">▶</span><span class="kanal-ad">${kacis(son.ad)}</span></button></li></ul>`;
+  html += f.length ? gruplarHtml(f, favMi) : '<p class="bos">Henüz favorin yok. Canlı TV\'de bir kanalın yanındaki ☆ işaretine dokun.</p>';
+  $('#sekme-favoriler').innerHTML = html;
+}
+
+function cizTv() {
+  const kanallar = tumKanallar();
+  const kutu = $('#tv-liste');
+  if (!kanallar.length) {
+    kutu.innerHTML = '<p class="bos">Henüz kanal yok. Ayarlar\'daki "Liste ekle" bölümünden M3U listesi ekle.</p>';
+    return;
+  }
+  const sonuc = kanalAra(kanallar, $('#ara').value);
+  kutu.innerHTML = sonuc.length ? gruplarHtml(sonuc, favMi) : '<p class="bos">Aramana uyan kanal yok.</p>';
+}
+
+function cizYoutube() {
+  const y = depo.youtubeleriGetir();
+  $('#yt-liste').innerHTML = y.length
+    ? y.map((x) => `<div class="satir"><button type="button" class="kanal-ac" data-ytac="${kacis(x.kimlik)}"><span class="logo-yok" aria-hidden="true">▶</span><span class="kanal-ad">${kacis(x.ad)}</span></button><button type="button" class="sil" data-ytsil="${kacis(x.kimlik)}" aria-label="Sil">Sil</button></div>`).join('')
+    : '<p class="bos">Henüz YouTube yayını yok. Aşağıdan kanal kimliği veya bağlantı ekleyebilirsin.</p>';
+}
+
+function cizAbonelik() {
+  const a = depo.abonelikleriGetir();
+  $('#ab-liste').innerHTML = a.length
+    ? a.map((x) => `<div class="satir"><button type="button" class="kanal-ac" data-ab="${kacis(x.adres)}"><span class="logo-yok" aria-hidden="true">↗</span><span class="kanal-ad">${kacis(x.ad)}</span></button><button type="button" class="sil" data-absil="${kacis(x.adres)}" aria-label="Sil">Sil</button></div>`).join('')
+    : '<p class="bos">Abonelik kartı yok.</p>';
+}
+
+function cizAyarlar() {
+  const l = depo.listeleriGetir();
+  $('#l-liste').innerHTML = l.length
+    ? l.map((x) => `<div class="satir"><span class="kanal-ad" style="flex:1">${kacis(x.ad)} (${x.kanallar.length})</span><button type="button" class="sil" data-lsil="${kacis(x.id)}" aria-label="Listeyi sil">Sil</button></div>`).join('')
+    : '<p class="not">Henüz liste eklemedin.</p>';
+}
+
+// ---------- oynatıcı ----------
+const video = $('#video');
+const cerceve = $('#yt-cerceve');
+function hataGoster(tur) {
+  $('#o-hata-metin').textContent = HATA_METNI[tur] || HATA_METNI.acilmadi;
+  $('#o-hata').hidden = false;
+}
+function paneliAc(ad) {
+  $('#o-ad').textContent = ad;
+  $('#o-hata').hidden = true;
+  $('#oynatici').hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+function kanalAc(k) {
+  sonAcilan = { tur: 'kanal', k };
+  paneliAc(k.ad);
+  cerceve.hidden = true; cerceve.src = 'about:blank';
+  video.hidden = false;
+  depo.sonIzleneniKaydet(k);
+  oynat(video, k.adres, { hata: hataGoster, basladi: () => { $('#o-hata').hidden = true; } });
+}
+function youtubeAc(x) {
+  sonAcilan = { tur: 'youtube', x };
+  paneliAc(x.ad);
+  durdur(video); video.hidden = true;
+  cerceve.hidden = false;
+  cerceve.src = youtubeAdresi(x);
+}
+function paneliKapat() {
+  durdur(video);
+  cerceve.src = 'about:blank'; cerceve.hidden = true;
+  $('#oynatici').hidden = true;
+  document.body.style.overflow = '';
+  sonAcilan = null;
+  if (sekme === 'favoriler') cizFavoriler();
+}
+$('#o-kapat').addEventListener('click', paneliKapat);
+$('#o-tekrar').addEventListener('click', () => {
+  if (!sonAcilan) return;
+  if (sonAcilan.tur === 'kanal') kanalAc(sonAcilan.k); else youtubeAc(sonAcilan.x);
+});
+
+// ---------- olaylar (delegasyon) ----------
+$('#icerik').addEventListener('click', (e) => {
+  const h = e.target.closest('button');
+  if (!h) return;
+  const d = h.dataset;
+  if (d.adres) {
+    const k = [...depo.favorileriGetir(), ...tumKanallar(), depo.sonIzleneniGetir()].find((x) => x && x.adres === d.adres);
+    if (k) kanalAc(k);
+  } else if (d.fav) {
+    const k = [...tumKanallar(), ...depo.favorileriGetir()].find((x) => x.adres === d.fav);
+    if (k) { depo.favoriDegistir(k); ciz(); }
+  } else if (d.ab) {
+    window.open(d.ab, '_blank', 'noopener');
+  } else if (d.absil) {
+    if (confirm('Bu abonelik kartı silinsin mi?')) { depo.abonelikSil(d.absil); ciz(); }
+  } else if (d.ytac) {
+    const x = depo.youtubeleriGetir().find((y) => y.kimlik === d.ytac);
+    if (x) youtubeAc(x);
+  } else if (d.ytsil) {
+    if (confirm('Bu YouTube yayını silinsin mi?')) { depo.youtubeSil(d.ytsil); ciz(); }
+  } else if (d.lsil) {
+    if (confirm('Bu liste silinsin mi?')) { depo.listeSil(d.lsil); ciz(); }
+  }
+});
+document.querySelectorAll('.alt button').forEach((b) => b.addEventListener('click', () => sekmeGit(b.dataset.sekme)));
+$('#ara').addEventListener('input', cizTv);
+
+function mesaj(id, metin, tur) { const e = $(id); e.textContent = metin; e.className = 'mesaj ' + (tur || ''); }
+
+$('#ab-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  if (depo.abonelikEkle({ ad: f.get('ad'), adres: String(f.get('adres')).trim() })) { e.target.reset(); mesaj('#ab-mesaj', 'Eklendi.', 'ok'); cizAbonelik(); }
+  else mesaj('#ab-mesaj', 'Adres https:// ile başlamalı ve daha önce eklenmemiş olmalı.', 'hata');
+});
+
+$('#yt-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const c = youtubeCoz(f.get('girdi'));
+  if (!c) return mesaj('#yt-mesaj', 'Kanal kimliği (UC ile başlar) ya da YouTube bağlantısı anlaşılamadı.', 'hata');
+  if (depo.youtubeEkle({ ad: f.get('ad'), ...c })) { e.target.reset(); mesaj('#yt-mesaj', 'Eklendi.', 'ok'); cizYoutube(); }
+  else mesaj('#yt-mesaj', 'Bu yayın zaten ekli.', 'hata');
+});
+
+const LISTE_HATA = {
+  bos: 'Boş bırakılamaz.',
+  gecersiz: 'Bu geçerli bir M3U listesi değil (adres https:// ile başlamalı, içerik #EXTM3U ile başlamalı).',
+  okunamadi: 'Liste adresten okunamadı (site izin vermiyor olabilir). Listeyi açıp metnini yapıştırmayı veya dosyadan eklemeyi dene.',
+};
+async function listeEkle(girdi) {
+  const s = await listeHazirla({ ...girdi, ad: $('#l-ad').value });
+  if (!s.ok) return mesaj('#l-mesaj', LISTE_HATA[s.hata], 'hata');
+  if (!depo.listeKaydet(s.liste)) return mesaj('#l-mesaj', 'Kaydedilemedi (telefonun depolama alanı dolu olabilir).', 'hata');
+  mesaj('#l-mesaj', `${s.liste.kanallar.length} kanal eklendi${s.atlanan ? `, ${s.atlanan} satır atlandı` : ''}.`, 'ok');
+  $('#l-adres').value = ''; $('#l-metin').value = ''; $('#l-ad').value = '';
+  cizAyarlar();
+}
+$('#l-adres-ekle').addEventListener('click', () => listeEkle({ tur: 'adres', deger: $('#l-adres').value }));
+$('#l-metin-ekle').addEventListener('click', () => listeEkle({ tur: 'metin', deger: $('#l-metin').value }));
+$('#l-dosya').addEventListener('change', async (e) => {
+  const dosya = e.target.files[0];
+  if (!dosya) return;
+  try { await listeEkle({ tur: 'dosya', deger: await dosya.text() }); } catch (err) { mesaj('#l-mesaj', LISTE_HATA.okunamadi, 'hata'); }
+  e.target.value = '';
+});
+
+// ---------- açılış ----------
+(async function baslat() {
+  depo.abonelikleriTohumla([{"ad": "beIN CONNECT", "adres": "https://www.beinconnect.com.tr/"}, {"ad": "TOD", "adres": "https://www.todtv.com.tr/"}, {"ad": "Disney+", "adres": "https://www.disneyplus.com/tr-tr"}]);
+  sekmeGit(depo.favorileriGetir().length || depo.sonIzleneniGetir() ? 'favoriler' : 'tv');
+})();
+
+</script>
+</body>
+</html>
