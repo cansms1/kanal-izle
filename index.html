@@ -155,6 +155,23 @@ label { display: block; margin: 12px 0; font-size: 14px; color: var(--soluk); }
   .oynatici.yt .o-ust { display: flex; }
 }
 @media (prefers-reduced-motion: reduce) { .donen { animation-duration: 2.4s; } }
+
+/* Asistan */
+.asistan { margin-top: 8px; }
+.asistan .ara-kutu span { color: var(--vurgu); font-size: 17px; }
+#as-mik.dinliyor { background: var(--vurgu); color: var(--vurgu-yazi); animation: nabiz 1s ease-in-out infinite; }
+@keyframes nabiz { 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) { #as-mik.dinliyor { animation: none; } }
+.as-yanit { margin: 8px 4px 0; font-size: 14px; color: var(--yazi); }
+.as-yanit.hata { color: #ef4444; }
+.as-temizle { margin-left: 6px; min-height: 32px; padding: 0 12px; border: 1px solid var(--cizgi); border-radius: 999px; background: var(--kart); color: var(--vurgu); font-size: 13px; font-weight: 700; }
+.olu-not { display: block; color: #ef4444; font-size: 12px; font-weight: 600; }
+select { width: 100%; min-height: 46px; margin-top: 6px; padding: 0 10px; border: 1px solid var(--cizgi); border-radius: 12px; background: var(--zemin); color: var(--yazi); font: inherit; font-size: 16px; }
+label.onay { display: flex; align-items: center; gap: 10px; color: var(--yazi); }
+label.onay input { width: 22px; min-height: 22px; height: 22px; margin: 0; flex: none; }
+.kart .dugme + .dugme { margin-left: 8px; }
+.mesaj.tamam { color: #16a34a; }
+.cocuk-kipi .alt [data-sekme="youtube"], .cocuk-kipi .alt [data-sekme="abonelik"] { display: none; }
 </style>
 </head>
 <body>
@@ -173,6 +190,12 @@ label { display: block; margin: 12px 0; font-size: 14px; color: var(--soluk); }
       <button type="button" id="sira" class="duzenle" aria-pressed="false" aria-label="Kanalları harf sırasına diz">A-Z</button>
       <button type="button" id="duzenle" class="duzenle" aria-pressed="false">Düzenle</button>
       </div>
+      <div class="ara-satir asistan">
+      <div class="ara-kutu"><span aria-hidden="true">✦</span><input id="as-girdi" type="text" placeholder="Asistana yaz: TRT Spor aç, haber kanalları…" autocomplete="off" autocapitalize="off" enterkeyhint="send" aria-label="Asistana yaz"></div>
+      <button type="button" id="as-mik" class="duzenle" aria-label="Sesli komut" aria-pressed="false" hidden>🎤</button>
+      <button type="button" id="as-gonder" class="duzenle">Sor</button>
+      </div>
+      <p id="as-yanit" class="as-yanit" role="status" hidden></p>
       <div id="gruplar" class="cipler" role="group" aria-label="Kanal grupları"></div>
     </div>
     <div id="tv-liste"></div>
@@ -223,11 +246,47 @@ label { display: block; margin: 12px 0; font-size: 14px; color: var(--soluk); }
       <button type="button" class="dugme ikincil" id="s-geri">Silinen kanalları geri getir</button>
     </div>
     <div class="kart">
+      <h2>Yapay zekâ asistanı</h2>
+      <p class="not">Canlı TV'deki "Asistana yaz" kutusu "haber kanallarını göster", "ne izleyeyim" gibi istekleri anlar. Ücretsiz bir anahtar gerekir; anahtar yalnızca bu cihazda saklanır, başka cihazlara ve GitHub'a gitmez. "TRT 1 aç" gibi kısa komutlar ve akıllı arama anahtarsız da çalışır.</p>
+      <label>Hizmet <select id="z-saglayici"></select></label>
+      <label id="z-taban-satir" hidden>Hizmet adresi (https://…/v1) <input id="z-taban" inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://"></label>
+      <button type="button" class="dugme ikincil" id="z-anahtar-al">Ücretsiz anahtar al ↗</button>
+      <label>Anahtar <input id="z-anahtar" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></label>
+      <button type="button" class="dugme" id="z-kaydet">Kaydet ve dene</button>
+      <button type="button" class="dugme tehlike" id="z-sil" hidden>Anahtarı sil</button>
+      <label id="z-model-satir" hidden>Model <select id="z-model"></select></label>
+      <p class="mesaj" id="z-mesaj" role="status"></p>
+      <p class="not" id="z-durum"></p>
+    </div>
+    <div class="kart">
+      <h2>Kanal sağlığı</h2>
+      <p class="not">Bütün kanalları tek tek dener, açılmayanları işaretler. Birkaç dakika sürebilir; internet gerekir.</p>
+      <button type="button" class="dugme" id="d-baslat">Kanalları denetle</button>
+      <p class="not" id="d-durum" role="status"></p>
+      <label class="onay" id="d-gizle-satir" hidden><input type="checkbox" id="d-gizle"> Açılmayanları listede gizle</label>
+      <p class="not" id="d-liste"></p>
+      <button type="button" class="dugme ikincil" id="d-sifirla" hidden>İşaretleri kaldır</button>
+    </div>
+    <div class="kart">
+      <h2>Türlere ayır</h2>
+      <p class="not">Türü belli olmayan ("Diğer" altındaki) kanalları yapay zekâ Haber, Spor, Çocuk gibi türlere ayırır. Anahtar gerekir.</p>
+      <button type="button" class="dugme" id="t-ayir">Türü belirsiz kanalları ayır</button>
+      <button type="button" class="dugme ikincil" id="t-sifirla" hidden>Türleri eski haline getir</button>
+      <p class="mesaj" id="t-mesaj" role="status"></p>
+    </div>
+    <div class="kart">
+      <h2>Çocuk kipi</h2>
+      <p class="not">Açıkken yalnızca çocuk kanalları görünür; YouTube ve Abonelik bölümleri gizlenir. Kapatmak için şifre belirleyebilirsin.</p>
+      <button type="button" class="dugme" id="c-degistir">Çocuk kipini aç</button>
+      <p class="not" id="c-durum"></p>
+      <p class="mesaj" id="c-mesaj" role="status"></p>
+    </div>
+    <div class="kart">
       <h2>Uygulama olarak yükle</h2>
       <p class="not" id="kur-bilgi">iPhone: Safari'de alttaki Paylaş düğmesine, sonra "Ana Ekrana Ekle"ye dokun. Bilgisayar ve Android: tarayıcı menüsünden "Uygulamayı yükle" seçeneğini kullan.</p>
       <button type="button" class="dugme" id="kur" hidden>Uygulamayı yükle</button>
     </div>
-    <p class="not" id="surum">Sürüm 14 · logolu yeni kanal listesi</p>
+    <p class="not" id="surum">Sürüm 15 · yapay zekâ asistanı, akıllı arama, kanal denetimi</p>
   </section>
 </main>
 
@@ -346,10 +405,52 @@ function kanalAra(kanallar, sorgu) {
   const q = sadelestir(sorgu);
   if (!q) return kanallar;
   const parcalar = q.split(' ');
-  return kanallar.filter((k) => {
+  const tam = kanallar.filter((k) => {
     const hedef = sadelestir(k.ad + ' ' + (k.grup || ''));
     return parcalar.every((p) => hedef.includes(p));
   });
+  // Birebir uyan yoksa yazım hatasına dayanıklı arama: "tırt spor", "trtspor", "blumberg"
+  return tam.length ? tam : benzerAra(kanallar, sorgu);
+}
+
+// İki sözcük arasındaki harf farkı (sınırı aşınca erken çıkar)
+function mesafe(a, b, sinir) {
+  if (Math.abs(a.length - b.length) > sinir) return sinir + 1;
+  let once = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const simdi = [i]; let enAz = i;
+    for (let j = 1; j <= b.length; j++) {
+      const v = Math.min(once[j] + 1, simdi[j - 1] + 1, once[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      simdi.push(v); if (v < enAz) enAz = v;
+    }
+    if (enAz > sinir) return sinir + 1;
+    once = simdi;
+  }
+  return once[b.length];
+}
+const pay = (n) => (n <= 3 ? 0 : n <= 5 ? 1 : 2);   // kısa sözcükte hata payı yok
+const yakinlik = (p, w, s) => Math.min(mesafe(p, w, s), w.length > p.length ? mesafe(p, w.slice(0, p.length), s) : 99);
+
+function benzerAra(kanallar, sorgu) {
+  const q = sadelestir(sorgu);
+  if (!q) return [];
+  const parcalar = q.split(' '), bitisik = q.replace(/ /g, '');
+  const sonuc = [];
+  for (const k of kanallar) {
+    const ad = sadelestir(k.ad), sozcukler = ad.split(' '), adBitisik = ad.replace(/ /g, '');
+    const s0 = bitisik.length <= 4 ? 1 : 2;
+    const butun = bitisik.length >= 4 ? yakinlik(bitisik, adBitisik, s0) : 99;
+    if (butun <= s0) { sonuc.push({ k, puan: butun }); continue; }
+    let puan = 0.5, uydu = true;
+    for (const p of parcalar) {
+      const s = pay(p.length); let en = 99;
+      for (const w of sozcukler) { const d = yakinlik(p, w, s); if (d < en) en = d; }
+      if (en > s) { uydu = false; break; }
+      puan += en;
+    }
+    if (uydu) sonuc.push({ k, puan });
+  }
+  return sonuc.sort((x, y) => x.puan - y.puan).map((x) => x.k);
 }
 
 // ---- depo ----
@@ -556,7 +657,7 @@ function grupSirasi(kanallar) {
 }
 
 function satir(k, fav, duzenle) {
-  return `<li class="kanal"><button type="button" class="kanal-ac" data-adres="${kacis(k.adres)}">${avatar(k)}<span class="kanal-ad">${kacis(k.ad)}</span></button>`
+  return `<li class="kanal"><button type="button" class="kanal-ac" data-adres="${kacis(k.adres)}">${avatar(k)}<span class="kanal-ad">${kacis(k.ad)}${k.olu ? '<small class="olu-not">açılmıyor</small>' : ''}</span></button>`
     + (duzenle ? `<button type="button" class="kanal-sil" data-sil="${kacis(k.adres)}">Sil</button></li>` : `<button type="button" class="fav${fav ? ' acik' : ''}" data-fav="${kacis(k.adres)}" aria-label="${fav ? 'Favoriden çıkar' : 'Favoriye ekle'}" aria-pressed="${fav}">${fav ? '★' : '☆'}</button></li>`);
 }
 
@@ -630,7 +731,145 @@ function youtubeCoz(girdi) {
   return null;
 }
 
+// ---- zeka ----
+// Yapay zekâ asistanı: sağlayıcı bağlantısı, komut çözme, tür ayırma, yayın denetimi (arayüzden bağımsız, sınanabilir)
+
+const SAGLAYICILAR = {
+  groq: { ad: 'Groq (önerilen, ücretsiz)', taban: 'https://api.groq.com/openai/v1', anahtarSayfasi: 'https://console.groq.com/keys', tercih: ['openai/gpt-oss-120b', 'llama-3.3-70b-versatile', 'openai/gpt-oss-20b', 'llama-3.1-8b-instant'] },
+  openrouter: { ad: 'OpenRouter (yedek, ücretsiz modeller)', taban: 'https://openrouter.ai/api/v1', anahtarSayfasi: 'https://openrouter.ai/keys', tercih: [] },
+  ozel: { ad: 'Başka (adresini ben yazacağım)', taban: '', anahtarSayfasi: '', tercih: [] },
+};
+const TURLER = ['Ulusal', 'Haber', 'Spor', 'Çocuk', 'Belgesel', 'Müzik', 'Film ve Dizi', 'Yerel', 'Dini', 'Ekonomi', 'Diğer'];
+const ZEKA_HATA = {
+  anahtar: 'Anahtar kabul edilmedi. Ayarlar\'dan anahtarı yeniden gir.',
+  sinir: 'Ücretsiz kullanım sınırı doldu. Bir dakika sonra yeniden dene.',
+  ag: 'Yapay zekâ hizmetine ulaşılamadı. İnternet bağlantını denetle; sorun sürerse Ayarlar\'dan öbür sağlayıcıyı seç.',
+  model: 'Seçili model yanıt vermedi. Ayarlar\'dan başka bir model seç.',
+  diger: 'Asistan yanıt veremedi, yeniden dene.',
+};
+const hata = (tur, ek) => Object.assign(new Error(ek || tur), { tur });
+
+function tabanGecerli(taban) { return /^https:\/\/[^\s/]+/i.test(taban || '') || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?(\/|$)/i.test(taban || ''); }
+const basliklar = (ayar) => ({ 'Content-Type': 'application/json', Authorization: 'Bearer ' + ayar.anahtar });
+async function istek(ayar, yol, secenek, getir) {
+  if (!ayar || !ayar.anahtar || !tabanGecerli(ayar.taban)) throw hata('anahtar');
+  let y;
+  try { y = await (getir || fetch)(ayar.taban.replace(/\/+$/, '') + yol, { ...secenek, headers: basliklar(ayar) }); }
+  catch (e) { throw hata('ag'); }
+  if (y.status === 401 || y.status === 403) throw hata('anahtar');
+  if (y.status === 429) throw hata('sinir');
+  if (!y.ok) { let m = ''; try { m = JSON.stringify(await y.json()).slice(0, 200); } catch (e) { /* gövde yok */ } throw hata(y.status === 400 || y.status === 404 ? 'model' : 'diger', y.status + ' ' + m); }
+  try { return await y.json(); } catch (e) { throw hata('diger'); }
+}
+// Sohbet modeli olmayanlar (ses, koruma, resim) listeden ayıklanır
+async function modelleriGetir(ayar, getir) {
+  const v = await istek(ayar, '/models', { method: 'GET' }, getir);
+  const liste = Array.isArray(v && v.data) ? v.data : [];
+  return liste.map((m) => m && m.id).filter((id) => typeof id === 'string' && !/whisper|tts|guard|orpheus|embed|image|vision-preview|playai|speech|moderation/i.test(id)).sort();
+}
+function modelSec(idler, saglayici) {
+  const t = (SAGLAYICILAR[saglayici] || {}).tercih || [];
+  for (const m of t) if (idler.includes(m)) return m;
+  if (saglayici === 'openrouter') { const u = idler.find((m) => /:free$/.test(m) && /llama-3\.3-70b|gpt-oss|gemma|qwen|mistral/i.test(m)) || idler.find((m) => /:free$/.test(m)); if (u) return u; }
+  return idler[0] || '';
+}
+function jsonCikar(metin) {
+  let s = String(metin || '').trim().replace(/^```(?:json)?/i, '').replace(/```$/, '').trim();
+  try { return JSON.parse(s); } catch (e) { /* gövdenin içinde ara */ }
+  const a = s.indexOf('{'), b = s.lastIndexOf('}');
+  if (a >= 0 && b > a) { try { return JSON.parse(s.slice(a, b + 1)); } catch (e) { /* çözülemedi */ } }
+  return null;
+}
+async function sohbet(ayar, mesajlar, getir) {
+  const govde = (json) => JSON.stringify({ model: ayar.model, messages: mesajlar, temperature: 0.2, ...(json ? { response_format: { type: 'json_object' } } : {}) });
+  let v;
+  try { v = await istek(ayar, '/chat/completions', { method: 'POST', body: govde(true) }, getir); }
+  catch (e) { if (e.tur !== 'model') throw e; v = await istek(ayar, '/chat/completions', { method: 'POST', body: govde(false) }, getir); }   // JSON kipini desteklemeyen modeller
+  const icerik = v && v.choices && v.choices[0] && v.choices[0].message && v.choices[0].message.content;
+  if (typeof icerik !== 'string' || !icerik.trim()) throw hata('diger');
+  return icerik;
+}
+
+// ---- komutlar ----
+const satirlar = (kanallar) => kanallar.map((k, i) => i + '|' + k.ad + '|' + (k.grup || 'Diğer')).join('\n');
+function komutIstemi(kanallar, { favoriler = [], cokIzlenen = [] } = {}) {
+  return 'Sen bir TV kanal uygulamasının asistanısın. Kullanıcının isteğini yalnızca aşağıdaki kanal listesine göre yerine getir.\n'
+    + 'Yalnızca şu biçimde JSON döndür: {"eylem":"ac|listele|gizle|cevap","kanallar":[numaralar],"mesaj":"kısa Türkçe açıklama"}\n'
+    + '- ac: tek bir kanalı aç; "kanallar" içinde yalnızca o kanalın numarası olsun.\n'
+    + '- listele: isteğe uyan kanalları göster (tür, konu, öneri istekleri). Öneride en fazla 12 kanal seç.\n'
+    + '- gizle: yalnızca kullanıcı açıkça gizlemek, kaldırmak ya da silmek istediğinde.\n'
+    + '- cevap: kanal listesiyle ilgili soruya kısa yanıt ver ya da istek anlaşılmadıysa ne yazabileceğini söyle; "kanallar" boş olsun.\n'
+    + 'Canlı yayın akışını, saatleri ve hangi kanalda o an ne olduğunu bilmiyorsun; bilmediğin şeyi uydurma, bunu açıkça söyle.\n'
+    + 'Listede olmayan kanal numarası yazma.\n'
+    + (favoriler.length ? 'Kullanıcının favorileri: ' + favoriler.slice(0, 30).join(', ') + '\n' : '')
+    + (cokIzlenen.length ? 'En çok izledikleri: ' + cokIzlenen.slice(0, 15).join(', ') + '\n' : '')
+    + 'Kanal listesi (numara|ad|tür):\n' + satirlar(kanallar);
+}
+function komutCoz(yanit, kanallar) {
+  const v = jsonCikar(yanit);
+  if (!v || typeof v !== 'object') return { eylem: 'cevap', kanallar: [], mesaj: String(yanit || '').trim().slice(0, 400) || 'Anlayamadım, başka türlü yazar mısın?' };
+  const secilen = [...new Set((Array.isArray(v.kanallar) ? v.kanallar : []).map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n < kanallar.length))].map((n) => kanallar[n]);
+  let eylem = ['ac', 'listele', 'gizle', 'cevap'].includes(v.eylem) ? v.eylem : 'cevap';
+  if (eylem !== 'cevap' && !secilen.length) eylem = 'cevap';
+  return { eylem, kanallar: eylem === 'cevap' ? [] : (eylem === 'ac' ? secilen.slice(0, 1) : secilen), mesaj: typeof v.mesaj === 'string' ? v.mesaj.trim().slice(0, 400) : '' };
+}
+// Yapay zekâ gerekmeyen basit komutlar: "TRT Spor aç", "Haber", "hepsini göster". Anlaşılmazsa null.
+function yerelKomut(metin, kanallar, gruplar) {
+  const s = sadelestir(metin).replace(/[.!?]+$/, '');
+  if (!s) return null;
+  if (/^(hepsi|hepsini goster|tumu|tumunu goster|tum kanallar|butun kanallar|temizle|sifirla)$/.test(s)) return { eylem: 'temizle', kanallar: [], mesaj: '' };
+  for (const g of gruplar) {
+    const gs = sadelestir(g);
+    if (s === gs || new RegExp('^' + gs.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ' ?(kanallari|kanallarini|kanali)? ?(goster|listele|ac|getir)?$').test(s)) return { eylem: 'grup', grup: g, kanallar: [], mesaj: g + ' kanalları' };
+  }
+  const m = /^(.+?) ?(?:kanalini|kanali)? (ac|oynat|izle|baslat|acar misin)$/.exec(s);
+  const ad = m ? m[1] : s;
+  const tam = kanallar.find((k) => sadelestir(k.ad) === ad);
+  if (tam) return { eylem: 'ac', kanallar: [tam], mesaj: tam.ad + ' açılıyor' };
+  if (m) { const b = kanalAra(kanallar, ad); if (b.length) return { eylem: 'ac', kanallar: [b[0]], mesaj: b[0].ad + ' açılıyor' }; }
+  return null;
+}
+
+// ---- tür ayırma ve çocuk kanalları ----
+function turIstemi(kanallar) {
+  return 'Aşağıdaki TV kanallarını şu türlerden birine ayır: ' + TURLER.join(', ') + '.\n'
+    + 'Yalnızca JSON döndür; anahtar kanal numarası, değer tür adı olsun. Örnek: {"0":"Haber","1":"Spor"}\n'
+    + 'Emin olamadığın kanala "Diğer" yaz.\nKanallar (numara|ad):\n' + kanallar.map((k, i) => i + '|' + k.ad).join('\n');
+}
+function turCoz(yanit, kanallar) {
+  const v = jsonCikar(yanit) || {}; const c = {};
+  for (const [n, t] of Object.entries(v)) { const k = kanallar[Number(n)]; const tur = TURLER.find((x) => sadelestir(x) === sadelestir(t)); if (k && tur && tur !== 'Diğer') c[k.adres] = tur; }
+  return c;
+}
+const cocukYerel = (k) => /cocuk|kids|minika|cartoon|disney|baby|junior|cizgi|nick|boomerang|yumurcak|pepee|kidz/.test(sadelestir(k.ad + ' ' + (k.grup || '')));
+function cocukIstemi(kanallar) {
+  return 'Aşağıdaki TV kanallarından yalnızca çocuklar için yayın yapanların (çizgi film, çocuk programı) numaralarını ver.\n'
+    + 'Yalnızca JSON döndür: {"cocuk":[numaralar]}\nKanallar (numara|ad|tür):\n' + satirlar(kanallar);
+}
+function cocukCoz(yanit, kanallar) {
+  const v = jsonCikar(yanit) || {};
+  return (Array.isArray(v.cocuk) ? v.cocuk : []).map(Number).filter((n) => Number.isInteger(n) && kanallar[n]).map((n) => kanallar[n].adres);
+}
+
+// ---- yayın denetimi ----
+// 'calisiyor' | 'acilmiyor' | 'belirsiz' (sunucu denetime izin vermiyor: kanal olduğu gibi bırakılır)
+async function yayinDene(adres, { getir, sure = 9000 } = {}) {
+  const g = getir || fetch;
+  const dene = async (kip) => {
+    const k = new AbortController(); const z = setTimeout(() => k.abort(), sure);
+    try { return await g(adres, { method: 'GET', mode: kip, cache: 'no-store', credentials: 'omit', signal: k.signal }); } finally { clearTimeout(z); }
+  };
+  try {
+    const y = await dene('cors');
+    if (!y.ok) return 'acilmiyor';
+    const t = (await y.text()).slice(0, 2000);
+    return /#EXTM3U/.test(t) || !/^\s*</.test(t) ? 'calisiyor' : 'acilmiyor';   // HTML hata sayfası dönen adres yayın değildir
+  } catch (e) { /* izin yok ya da ulaşılamıyor: izinsiz kipte bir kez daha bak */ }
+  try { await dene('no-cors'); return 'belirsiz'; } catch (e) { return 'acilmiyor'; }
+}
+
 // ---- app ----
+
 
 
 
@@ -1014,11 +1253,24 @@ async function hazirListeyiYukle() {
   }
   hazirKanallar = m3uAyristir(metin).kanallar;
 }
-function tumKanallar() {
+// ham: çocuk kipi ve "açılmayanları gizle" uygulanmadan bütün kanallar
+function tumKanallar({ ham = false } = {}) {
   const hepsi = [...hazirKanallar];
   for (const l of depo.listeleriGetir()) hepsi.push(...l.kanallar);
   const goruldu = new Set(depo.silinenleriGetir());
-  return hepsi.filter((k) => (goruldu.has(k.adres) ? false : goruldu.add(k.adres)));
+  const turler = depo.ayarGetir('turler') || {}, olu = depo.ayarGetir('olu') || {};
+  let liste = hepsi.filter((k) => (goruldu.has(k.adres) ? false : goruldu.add(k.adres)))
+    .map((k) => (turler[k.adres] || olu[k.adres] ? { ...k, grup: turler[k.adres] || k.grup, olu: !!olu[k.adres] } : k));
+  if (ham) return liste;
+  if (depo.ayarGetir('oluGizle')) liste = liste.filter((k) => !k.olu);
+  return cocukSuz(liste);
+}
+// Çocuk kipi açıkken yalnızca çocuğa uygun kanallar kalır
+function cocukSuz(liste) {
+  const c = depo.ayarGetir('cocuk');
+  if (!c || !c.acik) return liste;
+  const uygun = new Set(c.uygun || []);
+  return liste.filter((k) => uygun.has(k.adres));
 }
 const favMi = (a) => depo.favoriMi(a);
 const grupAdi = (k) => k.grup || 'Diğer';
@@ -1046,13 +1298,18 @@ function ciz() {
 }
 
 function cizFavoriler() {
-  const f = depo.favorileriGetir();
-  const son = depo.sonIzleneniGetir();
+  const f = cocukSuz(depo.favorileriGetir());
+  const sonHam = depo.sonIzleneniGetir();
+  const son = sonHam && cocukSuz([sonHam]).length ? sonHam : null;
   let html = '';
   if (son) html += `<button type="button" class="devam" data-devam="1">${avatar(son)}<span class="devam-yazi"><small>Kaldığın yerden</small><strong>${kacis(son.ad)}</strong></span><span class="devam-oynat" aria-hidden="true">▶</span></button>`;
   html += f.length
     ? '<h3 class="grup">Favorilerim</h3>' + gruplarHtml(f, favMi, { basliklar: false })
     : '<p class="bos">Henüz favorin yok. Canlı TV\'de bir kanalın yanındaki ☆ işaretine dokun.</p>';
+  // Çok izlenenler: en az iki kez açılmış kanallar (favorilerde olmayanlar)
+  const iz = depo.ayarGetir('izlenme') || {};
+  const cok = tumKanallar().filter((k) => iz[k.adres] >= 2 && !f.some((x) => x.adres === k.adres)).sort((a, b) => iz[b.adres] - iz[a.adres]).slice(0, 6);
+  if (cok.length) html += '<h3 class="grup">Çok izlediklerin</h3>' + gruplarHtml(cok, favMi, { basliklar: false });
   $('#sekme-favoriler').innerHTML = html;
   altBaslik(f.length ? `${f.length} favori` : '');
 }
@@ -1070,7 +1327,8 @@ function cizTv() {
     kutu.innerHTML = '<p class="bos">Henüz kanal yok. Ayarlar\'daki "Liste ekle" bölümünden M3U listesi ekle.</p>';
     return;
   }
-  const suzulmus = kanalAra(seciliGrup ? kanallar.filter((k) => grupAdi(k) === seciliGrup) : kanallar, $('#ara').value);
+  const taban = zekaSuzgec ? kanallar.filter((k) => zekaSuzgec.adresler.has(k.adres)) : kanallar;
+  const suzulmus = kanalAra(seciliGrup ? taban.filter((k) => grupAdi(k) === seciliGrup) : taban, $('#ara').value);
   if (harfSirasi) gorunen = [...suzulmus].sort((a, b) => a.ad.localeCompare(b.ad, 'tr', { numeric: true, sensitivity: 'base' }));
   else gorunen = seciliGrup ? suzulmus : [...grupSirasi(suzulmus).values()].flat();
   $('#sira').setAttribute('aria-pressed', harfSirasi);
@@ -1100,6 +1358,7 @@ function cizAyarlar() {
   const n = depo.silinenleriGetir().length;
   $('#s-bilgi').textContent = n ? `${n} kanal sildin. Geri getirirsen hepsi listeye döner.` : 'Sildiğin kanal yok. Canlı TV\'de "Düzenle"ye dokunarak kanal silebilirsin.';
   $('#s-geri').hidden = !n;
+  cizZeka(); cizSaglik(); cizTurler(); cizCocuk();
 }
 
 // ---------- favori yıldızları ----------
@@ -1169,6 +1428,11 @@ function oynaticiAra() {
     s.hidden = !parcalar.every((p) => hedef.includes(p));
     if (!s.hidden) gorunen++;
   }
+  // Birebir uyan yoksa yazım hatasına dayanıklı arama
+  if (!gorunen && parcalar.length && cizilenListe) {
+    const yakin = new Set(benzerAra(cizilenListe, $('#o-ara').value));
+    for (const s of $('#o-liste').children) { s.hidden = !yakin.has(cizilenListe[Number(s.dataset.sira)]); if (!s.hidden) gorunen++; }
+  }
   $('#o-ara-bos').hidden = gorunen > 0 || !parcalar.length;
 }
 function kanalAc(liste, i) {
@@ -1184,6 +1448,7 @@ function kanalAc(liste, i) {
   favDugmesi($('#o-fav'), favMi(k.adres));
   cizOynaticiListe();
   depo.sonIzleneniKaydet(k);
+  { const iz = depo.ayarGetir('izlenme') || {}; iz[k.adres] = (iz[k.adres] || 0) + 1; const giris = Object.entries(iz); depo.ayarYaz('izlenme', giris.length > 400 ? Object.fromEntries(giris.sort((a, b) => b[1] - a[1]).slice(0, 300)) : iz); }
   yukleniyor(true);
   clearTimeout(bekleme);
   bekleme = setTimeout(() => hataGoster('acilmadi'), BEKLEME_MS);
@@ -1350,9 +1615,10 @@ $('#icerik').addEventListener('click', (e) => {
     const i = hepsi.findIndex((k) => k.adres === son.adres);
     if (i >= 0) kanalAc(hepsi, i); else kanalAc([son], 0);
   } else if (d.adres) {
-    const liste = sekme === 'favoriler' ? depo.favorileriGetir() : gorunen;
+    const liste = sekme === 'favoriler' ? cocukSuz(depo.favorileriGetir()) : gorunen;
     const i = liste.findIndex((k) => k.adres === d.adres);
     if (i >= 0) kanalAc(liste, i);
+    else { const k = tumKanallar().find((x) => x.adres === d.adres); if (k) kanalAc([k], 0); }   // "Çok izlediklerin" satırları
   } else if (d.sil) {
     depo.kanalSil(d.sil);
     cizTv();
@@ -1414,6 +1680,195 @@ $('#l-dosya').addEventListener('change', async (e) => {
   try { await listeEkle({ tur: 'dosya', deger: await dosya.text() }); } catch (err) { mesaj('#l-mesaj', LISTE_HATA.okunamadi, 'hata'); }
   e.target.value = '';
 });
+
+// ---------- yapay zekâ asistanı ----------
+let zekaSuzgec = null;     // asistanın seçtiği kanallar: { adresler:Set, etiket }
+const zekaAyari = () => { const z = depo.ayarGetir('zeka') || {}; const s = SAGLAYICILAR[z.saglayici] ? z.saglayici : 'groq'; return { saglayici: s, taban: s === 'ozel' ? (z.taban || '') : SAGLAYICILAR[s].taban, anahtar: z.anahtar || '', model: z.model || '' }; };
+function asYanit(metin, tur) {
+  const e = $('#as-yanit');
+  e.hidden = !metin && !zekaSuzgec;
+  e.className = 'as-yanit ' + (tur || '');
+  e.innerHTML = kacis(metin || (zekaSuzgec ? zekaSuzgec.etiket : '')) + (zekaSuzgec ? ' <button type="button" class="as-temizle" id="as-temizle">Tümünü göster ✕</button>' : '');
+}
+function asistanUygula(s, istek) {
+  if (s.eylem === 'temizle') { zekaSuzgec = null; seciliGrup = ''; $('#ara').value = ''; cizTv(); return asYanit(''); }
+  if (s.eylem === 'grup') { zekaSuzgec = null; seciliGrup = s.grup; $('#ara').value = ''; cizTv(); return asYanit(''); }
+  if (s.eylem === 'ac') {
+    zekaSuzgec = null; seciliGrup = ''; $('#ara').value = ''; cizTv();
+    const i = gorunen.findIndex((k) => k.adres === s.kanallar[0].adres);
+    asYanit(s.mesaj || s.kanallar[0].ad + ' açılıyor');
+    if (i >= 0) kanalAc(gorunen, i); else kanalAc([s.kanallar[0]], 0);
+    return;
+  }
+  if (s.eylem === 'listele') {
+    zekaSuzgec = { adresler: new Set(s.kanallar.map((k) => k.adres)), etiket: (s.mesaj || istek) + ' · ' + s.kanallar.length + ' kanal' };
+    seciliGrup = ''; $('#ara').value = ''; cizTv(); return asYanit('');
+  }
+  if (s.eylem === 'gizle') {
+    const adlar = s.kanallar.map((k) => k.ad);
+    if (!confirm(adlar.length + ' kanal listeden kaldırılsın mı?\n' + adlar.slice(0, 12).join(', ') + (adlar.length > 12 ? ' …' : '') + '\n\n(Ayarlar → "Silinen kanalları geri getir" ile hepsi geri gelir.)')) return asYanit('Vazgeçildi, hiçbir kanal kaldırılmadı.');
+    for (const k of s.kanallar) depo.kanalSil(k.adres);
+    cizTv(); return asYanit(adlar.length + ' kanal kaldırıldı. Ayarlar\'dan geri getirebilirsin.');
+  }
+  asYanit(s.mesaj || 'Anlayamadım, başka türlü yazar mısın?');
+}
+let asMesgul = false;
+async function asistanSor(metin) {
+  metin = String(metin || '').trim();
+  if (!metin || asMesgul) return;
+  if (sekme !== 'tv') sekmeGit('tv');
+  const kanallar = tumKanallar();
+  let s = yerelKomut(metin, kanallar, [...new Set(kanallar.map(grupAdi))]);
+  if (!s) {
+    const z = zekaAyari();
+    if (!z.anahtar || !z.model) return asYanit('Bu isteği anlamak için yapay zekâ gerekiyor: Ayarlar → "Yapay zekâ asistanı" bölümünden ücretsiz anahtarı gir. "TRT 1 aç" ya da "Haber" gibi kısa komutlar anahtarsız da çalışır.', 'hata');
+    asMesgul = true; $('#as-gonder').disabled = true; asYanit('Düşünüyor…');
+    try {
+      const liste = kanallar.slice(0, 700);
+      const iz = depo.ayarGetir('izlenme') || {};
+      const cok = kanallar.filter((k) => iz[k.adres] > 1).sort((a, b) => iz[b.adres] - iz[a.adres]).map((k) => k.ad);
+      s = komutCoz(await sohbet(z, [{ role: 'system', content: komutIstemi(liste, { favoriler: depo.favorileriGetir().map((k) => k.ad), cokIzlenen: cok }) }, { role: 'user', content: metin }]), liste);
+    } catch (e) { asMesgul = false; $('#as-gonder').disabled = false; return asYanit(ZEKA_HATA[e.tur] || ZEKA_HATA.diger, 'hata'); }
+    asMesgul = false; $('#as-gonder').disabled = false;
+  }
+  asistanUygula(s, metin);
+}
+$('#as-gonder').addEventListener('click', () => asistanSor($('#as-girdi').value));
+$('#as-girdi').addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); asistanSor($('#as-girdi').value); } });
+$('#as-yanit').addEventListener('click', (e) => { if (e.target.id === 'as-temizle') { zekaSuzgec = null; cizTv(); asYanit(''); } });
+// Sesli komut: tarayıcının kendi konuşma tanıması (destekleyen tarayıcılarda görünür)
+const Tanima = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (Tanima) {
+  const mik = $('#as-mik'); mik.hidden = false; let dinliyor = null;
+  mik.addEventListener('click', () => {
+    if (dinliyor) { dinliyor.stop(); return; }
+    const t = new Tanima(); t.lang = 'tr-TR'; t.interimResults = false; t.maxAlternatives = 1;
+    t.onresult = (e) => { const m = e.results[0][0].transcript; $('#as-girdi').value = m; asistanSor(m); };
+    t.onerror = (e) => asYanit(e.error === 'not-allowed' || e.error === 'service-not-allowed' ? 'Mikrofon izni verilmedi. Tarayıcının adres çubuğundaki kilit simgesinden mikrofona izin ver.' : e.error === 'no-speech' ? 'Ses duyulmadı, yeniden dene.' : 'Ses anlaşılamadı, yeniden dene.', 'hata');
+    t.onend = () => { dinliyor = null; mik.classList.remove('dinliyor'); mik.setAttribute('aria-pressed', 'false'); };
+    try { t.start(); dinliyor = t; mik.classList.add('dinliyor'); mik.setAttribute('aria-pressed', 'true'); asYanit('Dinliyorum… komutu söyle.'); } catch (e) { asYanit('Mikrofon başlatılamadı.', 'hata'); }
+  });
+}
+
+// ---- Ayarlar: anahtar ve model ----
+const zMesaj = (m, tur) => mesaj('#z-mesaj', m, tur);
+function cizZeka() {
+  const z = zekaAyari();
+  $('#z-saglayici').innerHTML = Object.entries(SAGLAYICILAR).map(([k, v]) => `<option value="${k}"${k === z.saglayici ? ' selected' : ''}>${kacis(v.ad)}</option>`).join('');
+  $('#z-taban-satir').hidden = z.saglayici !== 'ozel'; $('#z-taban').value = z.saglayici === 'ozel' ? z.taban : '';
+  $('#z-anahtar-al').hidden = !SAGLAYICILAR[z.saglayici].anahtarSayfasi;
+  $('#z-anahtar').value = ''; $('#z-anahtar').placeholder = z.anahtar ? 'Kayıtlı anahtar: ••••' + z.anahtar.slice(-4) : 'Anahtarı buraya yapıştır';
+  $('#z-sil').hidden = !z.anahtar;
+  const modeller = (depo.ayarGetir('zekaModeller') || []);
+  $('#z-model-satir').hidden = !z.anahtar || !modeller.length;
+  $('#z-model').innerHTML = modeller.map((m) => `<option${m === z.model ? ' selected' : ''}>${kacis(m)}</option>`).join('');
+  $('#z-durum').textContent = z.anahtar && z.model ? 'Asistan hazır. Canlı TV sekmesindeki "Asistana yaz" kutusunu kullan.' : 'Asistan henüz kurulmadı.';
+}
+$('#z-saglayici').addEventListener('change', () => { const z = depo.ayarGetir('zeka') || {}; depo.ayarYaz('zeka', { saglayici: $('#z-saglayici').value, taban: z.taban || '' }); depo.ayarYaz('zekaModeller', []); zMesaj('Sağlayıcı değişti; bu sağlayıcının anahtarını gir.', ''); cizZeka(); });
+$('#z-anahtar-al').addEventListener('click', () => { const a = SAGLAYICILAR[zekaAyari().saglayici].anahtarSayfasi; if (a) window.open(a, '_blank', 'noopener'); });
+$('#z-kaydet').addEventListener('click', async () => {
+  const eski = zekaAyari(); const s = $('#z-saglayici').value;
+  const taban = s === 'ozel' ? $('#z-taban').value.trim() : SAGLAYICILAR[s].taban;
+  const anahtar = $('#z-anahtar').value.trim() || eski.anahtar;
+  if (!anahtar) return zMesaj('Önce anahtarı yapıştır.', 'hata');
+  if (!tabanGecerli(taban)) return zMesaj('Hizmet adresi https:// ile başlamalı.', 'hata');
+  zMesaj('Anahtar deneniyor…', ''); $('#z-kaydet').disabled = true;
+  try {
+    const deneme = { saglayici: s, taban, anahtar, model: '' };
+    const modeller = await modelleriGetir(deneme);
+    if (!modeller.length) throw Object.assign(new Error('model yok'), { tur: 'model' });
+    const model = modeller.includes(eski.model) ? eski.model : modelSec(modeller, s);
+    await sohbet({ ...deneme, model }, [{ role: 'user', content: 'Yalnızca şu JSON\'u döndür: {"tamam":true}' }]);
+    depo.ayarYaz('zeka', { saglayici: s, taban: s === 'ozel' ? taban : '', anahtar, model }); depo.ayarYaz('zekaModeller', modeller.slice(0, 80));
+    cizZeka(); zMesaj('Anahtar çalışıyor. Asistan hazır (model: ' + model + ').', 'tamam');
+  } catch (e) { zMesaj(e.tur === 'model' ? 'Anahtar kabul edildi ama uygun bir model bulunamadı. Öbür sağlayıcıyı dene.' : (ZEKA_HATA[e.tur] || ZEKA_HATA.diger), 'hata'); }
+  $('#z-kaydet').disabled = false;
+});
+$('#z-model').addEventListener('change', () => { const z = depo.ayarGetir('zeka') || {}; depo.ayarYaz('zeka', { ...z, model: $('#z-model').value }); zMesaj('Model değişti: ' + $('#z-model').value, 'tamam'); });
+$('#z-sil').addEventListener('click', () => { const z = depo.ayarGetir('zeka') || {}; depo.ayarYaz('zeka', { saglayici: z.saglayici, taban: z.taban }); depo.ayarYaz('zekaModeller', []); cizZeka(); zMesaj('Anahtar bu cihazdan silindi.', ''); });
+
+// ---- Ayarlar: kanal sağlığı ----
+let denetim = null;
+function cizSaglik() {
+  const olu = depo.ayarGetir('olu') || {}; const adresler = Object.keys(olu);
+  const hepsi = tumKanallar({ ham: true }); const adlar = hepsi.filter((k) => olu[k.adres]).map((k) => k.ad);
+  $('#d-gizle').checked = !!depo.ayarGetir('oluGizle');
+  $('#d-gizle-satir').hidden = !adresler.length; $('#d-sifirla').hidden = !adresler.length;
+  $('#d-liste').textContent = adlar.length ? 'Açılmayan olarak işaretli (' + adlar.length + '): ' + adlar.join(', ') : '';
+  const son = depo.ayarGetir('denetimSon');
+  if (!denetim) $('#d-durum').textContent = son ? 'Son denetim: ' + new Date(son.zaman).toLocaleString('tr-TR') + ' · ' + son.ozet : 'Henüz denetim yapılmadı.';
+}
+$('#d-baslat').addEventListener('click', async () => {
+  if (denetim) { denetim.dur = true; return; }
+  const kanallar = tumKanallar({ ham: true });
+  if (!kanallar.length) return;
+  if (!navigator.onLine) { $('#d-durum').textContent = 'İnternet bağlantısı yok; denetim yapılamaz.'; return; }
+  denetim = { dur: false }; const d = denetim; $('#d-baslat').textContent = 'Durdur';
+  const sayim = { calisiyor: 0, acilmiyor: 0, belirsiz: 0 }; const olu = {}; let sira = 0, biten = 0;
+  const isci = async () => { while (!d.dur && sira < kanallar.length) { const k = kanallar[sira++]; const r = await yayinDene(k.adres); sayim[r]++; if (r === 'acilmiyor') olu[k.adres] = 1; biten++; $('#d-durum').textContent = biten + ' / ' + kanallar.length + ' kanal denendi…'; } };
+  await Promise.all(Array.from({ length: 6 }, isci));
+  denetim = null; $('#d-baslat').textContent = 'Kanalları denetle';
+  if (d.dur) { $('#d-durum').textContent = 'Denetim durduruldu; işaretler değişmedi.'; return; }
+  const ozet = kanallar.length + ' kanal: ' + sayim.calisiyor + ' çalışıyor, ' + sayim.acilmiyor + ' açılmıyor' + (sayim.belirsiz ? ', ' + sayim.belirsiz + ' denetlenemedi (yayın sunucusu denetime izin vermiyor; bunlara dokunulmadı)' : '');
+  depo.ayarYaz('olu', olu); depo.ayarYaz('denetimSon', { zaman: Date.now(), ozet });
+  cizSaglik();
+});
+$('#d-gizle').addEventListener('change', () => { depo.ayarYaz('oluGizle', $('#d-gizle').checked); });
+$('#d-sifirla').addEventListener('click', () => { depo.ayarYaz('olu', {}); depo.ayarYaz('oluGizle', false); cizSaglik(); });
+
+// ---- Ayarlar: türlere ayırma ----
+const turuBelirsiz = (k) => !k.grup || /^(diger|diğer|undefined|genel|other|uncategorized|bilinmeyen)$/i.test(k.grup.trim());
+$('#t-ayir').addEventListener('click', async () => {
+  const z = zekaAyari();
+  if (!z.anahtar || !z.model) return mesaj('#t-mesaj', 'Bunun için önce yukarıdan yapay zekâ anahtarını gir.', 'hata');
+  const hedef = [...hazirKanallar, ...depo.listeleriGetir().flatMap((l) => l.kanallar)].filter(turuBelirsiz);
+  const tekil = [...new Map(hedef.map((k) => [k.adres, k])).values()];
+  if (!tekil.length) return mesaj('#t-mesaj', 'Türü belirsiz kanal yok; hepsinin türü zaten belli.', 'tamam');
+  $('#t-ayir').disabled = true; const turler = { ...(depo.ayarGetir('turler') || {}) }; let ayrilan = 0;
+  try {
+    for (let i = 0; i < tekil.length; i += 60) {
+      mesaj('#t-mesaj', Math.min(i + 60, tekil.length) + ' / ' + tekil.length + ' kanal ayrılıyor…', '');
+      const parca = tekil.slice(i, i + 60);
+      const c = turCoz(await sohbet(z, [{ role: 'user', content: turIstemi(parca) }]), parca);
+      ayrilan += Object.keys(c).length; Object.assign(turler, c);
+      depo.ayarYaz('turler', turler);
+    }
+    mesaj('#t-mesaj', tekil.length + ' kanaldan ' + ayrilan + ' tanesinin türü belirlendi' + (ayrilan < tekil.length ? '; kalanlar "Diğer" altında duruyor.' : '.'), 'tamam');
+  } catch (e) { mesaj('#t-mesaj', (ayrilan ? ayrilan + ' kanal ayrıldı, sonra durdu: ' : '') + (ZEKA_HATA[e.tur] || ZEKA_HATA.diger), 'hata'); }
+  $('#t-ayir').disabled = false; cizTurler();
+});
+function cizTurler() { $('#t-sifirla').hidden = !Object.keys(depo.ayarGetir('turler') || {}).length; }
+$('#t-sifirla').addEventListener('click', () => { depo.ayarYaz('turler', {}); cizTurler(); mesaj('#t-mesaj', 'Türler eski haline getirildi.', ''); });
+
+// ---- Ayarlar: çocuk kipi ----
+const cocukAcik = () => { const c = depo.ayarGetir('cocuk'); return !!(c && c.acik); };
+function cizCocuk() {
+  const c = depo.ayarGetir('cocuk') || {};
+  document.body.classList.toggle('cocuk-kipi', !!c.acik);
+  $('#c-degistir').textContent = c.acik ? 'Çocuk kipini kapat' : 'Çocuk kipini aç';
+  $('#c-durum').textContent = c.acik ? 'Çocuk kipi açık: yalnızca ' + (c.uygun || []).length + ' çocuk kanalı görünüyor.' : 'Çocuk kipi kapalı.';
+}
+$('#c-degistir').addEventListener('click', async () => {
+  const c = depo.ayarGetir('cocuk') || {};
+  if (c.acik) {
+    if (c.sifre && prompt('Çocuk kipini kapatmak için şifreyi yaz:') !== c.sifre) return mesaj('#c-mesaj', 'Şifre yanlış; çocuk kipi açık kaldı.', 'hata');
+    depo.ayarYaz('cocuk', { acik: false }); cizCocuk(); return mesaj('#c-mesaj', 'Çocuk kipi kapatıldı.', '');
+  }
+  const kanallar = tumKanallar({ ham: true }); const uygun = new Set(kanallar.filter(cocukYerel).map((k) => k.adres));
+  const z = zekaAyari(); let not = '';
+  $('#c-degistir').disabled = true;
+  if (z.anahtar && z.model) {
+    try { for (let i = 0; i < kanallar.length; i += 150) { mesaj('#c-mesaj', 'Çocuk kanalları belirleniyor…', ''); const parca = kanallar.slice(i, i + 150); for (const a of cocukCoz(await sohbet(z, [{ role: 'user', content: cocukIstemi(parca) }]), parca)) uygun.add(a); } }
+    catch (e) { not = ' (Yapay zekâya ulaşılamadı; kanallar adlarına göre seçildi.)'; }
+  } else not = ' (Yapay zekâ anahtarı olmadığı için kanallar adlarına ve türlerine göre seçildi.)';
+  $('#c-degistir').disabled = false;
+  if (!uygun.size) return mesaj('#c-mesaj', 'Listede çocuk kanalı bulunamadı; çocuk kipi açılmadı.', 'hata');
+  const sifre = prompt('Çocuk kipini kapatırken sorulacak şifreyi belirle (boş bırakırsan şifre sorulmaz):', '');
+  if (sifre === null) return mesaj('#c-mesaj', 'Vazgeçildi.', '');
+  depo.ayarYaz('cocuk', { acik: true, uygun: [...uygun], sifre: sifre.trim() });
+  zekaSuzgec = null; seciliGrup = ''; cizCocuk(); mesaj('#c-mesaj', uygun.size + ' çocuk kanalı seçildi.' + not, 'tamam');
+});
+cizCocuk();
 
 // ---------- açılış ----------
 (async function baslat() {
