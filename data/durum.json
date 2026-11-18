@@ -1,0 +1,706 @@
+{
+  "guncellendi": "2026-11-18T06:10:12.904Z",
+  "ozet": {
+    "acik": 148,
+    "kapali": 6,
+    "belirsiz": 20
+  },
+  "kanallar": {
+    "https://turkmedya-live.ercdn.net/tv24/tv24.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://turkmedya-live.ercdn.net/tv360/tv360.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/ahaber/ahaber.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/aspor/aspor.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tv.php?kanal=vivatv&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/a2tv/a2tv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_aksutv/aksutv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://al-ekhbaria-prod-dub.shahid.net/out/v1/9885cab0a3ec4008b53bae57a27ca76b/index.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://api-tv3.yayin.com.tr/postatv/postatv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/altastv/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_anadolunet/anadolunet/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tv.php?kanal=arabeskyeni&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://2.rtmp.org/tv217/yayin.stream/chunklist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tvz.php?kanal=arma&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_astv/astv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/atv/atv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge.socialsmart.tv/belemturktv/bant1/chunks.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv.ensonhaber.com/benguturk/benguturk.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://beyaztv-live.daioncdn.net/beyaztv/beyaztv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv.ensonhaber.com/bloomberght/bloomberght.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/bodrumkenttv/bant1/chunks.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_brtv/brtv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.euromediacenter.com/brukselturk/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://canliyayin.cine1.com.tr/memfs/cbaef080-a742-4644-9e9e-2b9f6a5103c3_output_0.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://hnpsechtsc.turknet.ercdn.net/xpnvudnlsv/cnbc-e/cnbc-e.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/caytv/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_ciftcitv/ciftcitv/chunks.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tv.php?kanal=damar&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_denizpostasi/denizpostasi/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn1-derintv.yayin.com.tr/derintv/derintv/chunklist_w1486394141_b1796000.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://eustr73.mediatriple.net/videoonlylive/mtikoimxnztxlive/broadcast_5e3bf95a47e07.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_diyartv/diyartv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/dizi-tv/playlist/0.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://dost.stream.emsal.im/tv/live.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.duhnet.tv/S2/HLS_LIVE/dreamturknp/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://canli.edessatv.com/hls/stream.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://ekoltv-live.ercdn.net/ekolsport/ekolsport.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://ekoltv-live.ercdn.net/ekoltv/ekoltv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn.ekoturk.net/hls/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_erciyestv/erciyestv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_ertv_new/ertv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://win29.yayin.com.tr/erzurumwebtv/erzurumwebtv/iptvdelisi.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_estv/estv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_etv/etv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/manisaetv/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.duhnet.tv/S2/HLS_LIVE/eurodnp/track_4_1000/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tvz.php?kanal=ezo&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge-e3.evrideo.tv/f2dcbecf-5af0-47db-a82e-032112050a23_1000027346_HLS/manifest.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://yayin30.haber100.com/live/finansturk/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtyycglqauzjhlive/broadcast_67c053c48829f.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/ftvturk/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_grt/grt/chunks.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tv.php?kanal=genctv&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/gtv/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv.ensonhaber.com/haberglobal/haberglobal.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv.ensonhaber.com/haberturk/haberturk.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://halktv-live.daioncdn.net/halktv/halktv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_hunattv/hunattv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.euromediacenter.com/hurtv/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/iceltv/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://stream.ilketv.com.tr/hls/ilkecanli.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_diyartv/diyartv/chunks.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://i41.ozelip.com:3269/hybrid/play.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn-time35tv.yayin.com.tr/time35tv/time35tv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanal12/kanal12/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanal15/kanal15/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.euromediacenter.com/kanal19/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanal23/kanal23/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanal26/kanal26/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanal3/kanal3/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/kanal32/bant1/chunks.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/kanal33/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.euromediacenter.com/kanal34/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://kanal53.ozelip.com:3448/hybrid/play.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanal58/kanal58/chunks.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://kanal7-live.daioncdn.net/kanal7/kanal7_1080p.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://livetv.radyotvonline.net/kanal7live/kanal7avr/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://demiroren.daioncdn.net/kanald/kanald.m3u8?app=kanald_web&ce=3#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanalfirat/kanalfirat/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanalplus/kanalplus/mpeg/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/kanalurfa/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kanalv/kanalv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kaytv/kaytv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_kentturktv/kentturktv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn4.yayin.com.tr/kntv/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/kocaelitv/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_konyaolaytv/konyaolaytv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn-ktvtv.yayin.com.tr/ktvtv/ktvtv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://lbl.netmedya.net/hls/lalegultv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_lifetv/lifetv/chunks.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/linetv/bant1/chunks.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/saudi_sunnah-avc1_600000=2-mp4a_145600_ara=3.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_vuslattv/vuslattv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_mavikaradeniz/mavikaradeniz/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rrr.sz.xlcdn.com/?account=mceutv&file=mc2&type=live&service=wowza&protocol=https&output=playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_mercantv/mercantv/chunks.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/metropoltv/smil/metropoltv/bant1/chunks.m3u8?app=supersatforum#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago_cocuk/minikago_cocuk.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://rnttwmjcin.turknet.ercdn.net/lcpmvefbyo/minikago/minikago.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/muglaturk/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/muglaturk/bant1/chunks.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/mukabele-tv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://uycyyuuzyh.turknet.ercdn.net/nphindgytw/nowtv/nowtv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e17cd6360b_1/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://dogus.daioncdn.net/ntv/ntv_720p.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e18f9cea15_1/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e198784bdc_1/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/u_stream_5c9e2aa8acf44_1/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e187770143.smil/chunklist_b400000.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtkgeuihrlfwlive/broadcast_5c9e17cd59e8b.smil/chunklist_b400000.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_olayturk/olayturk/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn1-ordubeltv.yayin.com.tr/ordubeltv/ordubeltv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://listen.powerapp.com.tr/dance/dance.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://listen.powerapp.com.tr/plove/love.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://livetv.powerapp.com.tr/powerTV/powerhd.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://listen.powerapp.com.tr/pturkakustik/akustik.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://listen.powerapp.com.tr/pturkslow/slow.smil/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://livetv.powerapp.com.tr/powerturkTV/powerturkhd.smil/playlists.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://cdn4.yayin.com.tr/rehbertv/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://yayin.rizeturk.com:3777/hybrid/play.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.euromediacenter.com/saglikchannel/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://canli.sercemtv.com.tr/hls/0/stream.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://ciner.daioncdn.net/showtv/showtv.m3u8?ce=3&app=4bc856ef-4c68-4a94-bc87-37dfaaa66558#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tv.php?kanal=silatv&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://host.onlineradyotv.net:8081/sdmtv/tracks-v1a1/mono.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live-tr-next.spacetoongo.com/ST_TR_NEXT/hls/h7qefeiwfbjn1.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://dogus.daioncdn.net/startv/startv_720p.m3u8?app=a20ac41e-bdc3-4aa1-934d-26b484480ac9&ce=3&sid=8l4w3lst4co5#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_sunrtv/sunrtv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://meclistv-live.ercdn.net/meclistv/meclistv.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tele1-live.ercdn.net/tele1/tele1.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_tempotv/tempotv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://ackaxsqacw.turknet.ercdn.net/ozfkfbbjba/teve2/teve2_1080p.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://canli.tgrthaber.com/tgrtbelgesel.m3u8#all": {
+      "durum": "kapali",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://canli.tgrthaber.com/tgrt.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_tivi6/tivi6/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tjktv-live.tjk.org/tjktv_1080p.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_tontv/tontv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tvz.php?kanal=toppop&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trt1.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trt2.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "kapali",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trt3.live.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtavaz.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtbelgesel.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "kapali",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtcocuk.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtdiyanetcocuk.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-e-okul00.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-e-okul02.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-e-okul01.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtgenc.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "kapali",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trthaber.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtkurdi.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtmuzik.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtspor1.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "kapali",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtspor2.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "kapali",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv-trtturk.medya.trt.com.tr/master.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/turkhaber/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/tv1/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://b01c02nl.mediatriple.net/videoonlylive/mtdxkkitgbrckilive/broadcast_5ee244263fd6d.smil/playlist.m3u8?md5=qb_9l3erQIDqZMjbKfALzA&expires=1651666386#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://turkmedya-live.ercdn.net/tv4/tv4_720p.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_tv41/tv41/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://edge1.socialsmart.tv/tv52/bant1/playlist.m3u8#all": {
+      "durum": "belirsiz",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv.ensonhaber.com/tv100/tv100.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv8.daioncdn.net/tv8/tv8.m3u8?app=7ddc255a-ef47-4e81-ab14-c0e5f2949788&ce=3#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tv8.daioncdn.net/tv8bucuk/tv8bucuk.m3u8?app=tv8bucuk_web&ce=3#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvnet-live.lg.mncdn.com/tvnet-live/tvnet/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_urfanatiktv/urfanatiktv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://livetv.radyotvonline.net/kanal7live/ulketv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.artidijitalmedya.com/artidijital_van65/van65/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://playlist.fasttvcdn.com/pl/rfrk9821hdy9dayo8wfyha/kltr-sanat-tv/playlist.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://live.yoltv.com/hls/stream.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    },
+    "https://tvsms.club/tv.php?kanal=zeynotv&file=.m3u8#all": {
+      "durum": "acik",
+      "son": "2026-11-18T06:10:12.904Z"
+    }
+  }
+}
