@@ -286,7 +286,7 @@ label.onay input { width: 22px; min-height: 22px; height: 22px; margin: 0; flex:
       <p class="not" id="kur-bilgi">iPhone: Safari'de alttaki Paylaş düğmesine, sonra "Ana Ekrana Ekle"ye dokun. Bilgisayar ve Android: tarayıcı menüsünden "Uygulamayı yükle" seçeneğini kullan.</p>
       <button type="button" class="dugme" id="kur" hidden>Uygulamayı yükle</button>
     </div>
-    <p class="not" id="surum">Sürüm 15 · yapay zekâ asistanı, akıllı arama, kanal denetimi</p>
+    <p class="not" id="surum">Sürüm 16 · günlük otomatik denetim, yapay zekâ asistanı</p>
   </section>
 </main>
 
@@ -1253,6 +1253,16 @@ async function hazirListeyiYukle() {
   }
   hazirKanallar = m3uAyristir(metin).kanallar;
 }
+// Günlük denetim sonucu (data/durum.json). Yoksa elle yapılan denetime bakılır.
+let gunlukDurum = {};
+async function gunlukDurumYukle() {
+  try {
+    const j = await jsonGetir('data/durum.json');
+    gunlukDurum = (j && j.kanallar) || {};
+    const el = document.querySelector('#d-durum');
+    if (el && j && j.guncellendi) el.textContent = 'Günlük denetim: ' + new Date(j.guncellendi).toLocaleString('tr-TR');
+  } catch (e) { gunlukDurum = {}; }
+}
 // ham: çocuk kipi ve "açılmayanları gizle" uygulanmadan bütün kanallar
 function tumKanallar({ ham = false } = {}) {
   const hepsi = [...hazirKanallar];
@@ -1260,7 +1270,12 @@ function tumKanallar({ ham = false } = {}) {
   const goruldu = new Set(depo.silinenleriGetir());
   const turler = depo.ayarGetir('turler') || {}, olu = depo.ayarGetir('olu') || {};
   let liste = hepsi.filter((k) => (goruldu.has(k.adres) ? false : goruldu.add(k.adres)))
-    .map((k) => (turler[k.adres] || olu[k.adres] ? { ...k, grup: turler[k.adres] || k.grup, olu: !!olu[k.adres] } : k));
+    .map((k) => {
+      const kapali = gunlukDurum[k.adres] ? gunlukDurum[k.adres].durum === 'kapali' : !!olu[k.adres];
+      return (turler[k.adres] || kapali) ? { ...k, grup: turler[k.adres] || k.grup, olu: kapali } : k;
+    });
+  // Açılmayanlar listenin sonuna iner; açılan kanal denetimden sonra yukarı çıkar
+  liste.sort((a, b) => (a.olu ? 1 : 0) - (b.olu ? 1 : 0));
   if (ham) return liste;
   if (depo.ayarGetir('oluGizle')) liste = liste.filter((k) => !k.olu);
   return cocukSuz(liste);
@@ -1873,6 +1888,7 @@ cizCocuk();
 // ---------- açılış ----------
 (async function baslat() {
   depo.abonelikleriTohumla([{"ad": "beIN CONNECT", "adres": "https://www.beinconnect.com.tr/"}, {"ad": "TOD", "adres": "https://www.todtv.com.tr/"}, {"ad": "Disney+", "adres": "https://www.disneyplus.com/tr-tr"}]);
+  await gunlukDurumYukle();
   await hazirListeyiYukle();
   sekmeGit(depo.favorileriGetir().length || depo.sonIzleneniGetir() ? 'favoriler' : 'tv');
 })();

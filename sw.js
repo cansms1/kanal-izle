@@ -1,6 +1,6 @@
 // Kanal İzle — kurulabilir uygulama için hizmet betiği
 // Uygulamanın kendi dosyalarını saklar; yayınlara (başka sitelere) dokunmaz.
-const ONBELLEK = 'kanal-izle-v15';
+const ONBELLEK = 'kanal-izle-v16';
 const DOSYALAR = ['./', './index.html', './manifest.webmanifest', './ikon-192.png', './ikon-512.png'];
 
 self.addEventListener('install', (e) => {
