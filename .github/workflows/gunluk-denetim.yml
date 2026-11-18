@@ -1,0 +1,36 @@
+name: Günlük kanal denetimi
+
+on:
+  schedule:
+    - cron: '20 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kanal-denetim
+  cancel-in-progress: false
+
+jobs:
+  denetle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Kanalları dene
+        run: node scripts/gunluk-denetim.mjs
+      - name: Sonucu kaydet
+        run: |
+          git config user.name "kanal-izle-denetim"
+          git config user.email "denetim@users.noreply.github.com"
+          git add data/durum.json
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok"
+          else
+            git commit -m "Günlük kanal denetimi"
+            git push
+          fi
